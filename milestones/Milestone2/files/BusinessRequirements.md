@@ -34,7 +34,6 @@ in order to mark them for reprocessing.
 related entities as necessary.
 16. Delete a work, along with any associated descriptions, discussions, contributions, instances, items
 and/or other related entities as necessary.
-
-(OLD) 1. Find the number of reservable rooms that have no room reservations made.
+1.(OLD) Find the number of reservable rooms that have no room reservations made.
 Show this number, as well as the number of total reservable rooms.
-(OLD) 5. Find the staff that has catalogued the most items. Show the name of the staff and the number of items.
+5.(OLD) Find the staff that has catalogued the most items. Show the name of the staff and the number of items.
