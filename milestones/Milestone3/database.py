@@ -12,18 +12,28 @@ db_name = os.environ['DB_NAME']
 
 
 def connect():
-    try:
-        conn = pymysql.connect(host=db_host,
-                               port=3306,
-                               user=db_username,
-                               password=db_password,
-                               db=db_name,
-                               charset="utf8mb4", cursorclass=pymysql.cursors.DictCursor)
-        print("Bot connected to database {}".format(db_name))
-        return conn
-    except:
-        print("Bot failed to create a connection with your database because your secret environment variables " +
-              "(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) are not set".format(db_name))
-        print("\n")
+  try:
+    conn = pymysql.connect(host=db_host,
+                           port=3306,
+                           user=db_username,
+                           password=db_password,
+                           db=db_name,
+                           charset="utf8mb4",
+                           cursorclass=pymysql.cursors.DictCursor)
+    print("Bot connected to database {}".format(db_name))
+    return conn
+  except:
+    print(
+      "Bot failed to create a connection with your database because your secret environment variables "
+      + "(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) are not set".format(db_name))
+    print("\n")
+
 
 # your code here
+def load(className, entityID):
+  sql = """SELECT * FROM Table"""
+  return sql
+
+class Select:
+  def __init__(self, attributes):
+    self.results = attributes
