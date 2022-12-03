@@ -47,10 +47,10 @@ async def on_message(message):
     # A message was send by the user.
     msg = message.content.lower()
     print(msg)
-    print(msg[0])
-    if(msg[0]=='!'):
+    #print(msg[0])
+    if (msg[0] == '!'):
       response = bot.response(msg)
-    
+
   if response:
     # bot sends response to the Discord API and the response is show
     # on the channel from your Discord server that triggered this method.
