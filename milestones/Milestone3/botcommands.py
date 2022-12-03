@@ -1,1 +1,1 @@
-NUM_OF_EMPLOYEES = ""
+TEST_CMD = '!test'
