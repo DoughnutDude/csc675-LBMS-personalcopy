@@ -8,7 +8,7 @@ import cmdparser as bot
 token = os.environ['DISCORD_TOKEN']
 server = os.environ['DISCORD_GUILD']
 #server_id = os.environ['SERVER_ID']  # optional
-channel_id = os.environ['CHANNEL_ID']  # optional
+channel_id = os.environ['CHANNEL_ID']  # general text chat
 
 # database connection
 # secret keys related to your database must be updated. Otherwise, it won't work
@@ -16,7 +16,7 @@ db_conn = db.connect()
 # bot events
 intents = discord.Intents.default()
 intents.message_content = True
-client = discord.Client(intents=intents)  # added intents=discord.Intents.all()
+client = discord.Client(intents=intents)
 
 
 @client.event
@@ -37,14 +37,15 @@ async def on_message(message):
     :param message: the message from the user. Note that this message is passed automatically by the Discord API
     :return: VOID
     """
+  print(message.channel.id)
   response = None  # will save the response from the bot
   if message.author == client.user:
     return  # the message was sent by the bot
   if message.type is discord.MessageType.new_member:
     response = "Welcome {}".format(
-      message.author)  # a new member joined the server. Welcome him.
-  else:
-    # A message was send by the user.
+      message.author)  # a new member joined the server. Welcome them.
+  elif (str(message.channel.id) == channel_id):
+    # A message was send by the user in the general channel.
     msg = message.content.lower()
     print(msg)
     #print(msg[0])
