@@ -37,7 +37,6 @@ async def on_message(message):
     :param message: the message from the user. Note that this message is passed automatically by the Discord API
     :return: VOID
     """
-  print(message.channel.id)
   response = None  # will save the response from the bot
   if message.author == client.user:
     return  # the message was sent by the bot
@@ -55,8 +54,23 @@ async def on_message(message):
   if response:
     # bot sends response to the Discord API and the response is show
     # on the channel from your Discord server that triggered this method.
-    embed = discord.Embed(description=response)
-    await message.channel.send(embed=embed)
+    embed = discord.Embed(title=f"**{message.content[1:]}**")
+
+    if isinstance(response, str):
+      print(response)
+      embed.description = f"{response}"
+    else:
+      values = ""
+      for index, row in enumerate(response):
+        #print(row.items())
+        values = ""
+        for key, value in row.items():
+          #print(key, value)
+          values = f"{values}> {key}: {value}\n"
+        embed.add_field(name=f"result {index+1}:", value=f"{values}", inline=False)
+
+
+    await message.reply(embed=embed, mention_author=False)
 
 
 try:

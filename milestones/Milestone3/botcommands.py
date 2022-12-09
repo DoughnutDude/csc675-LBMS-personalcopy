@@ -1,1 +1,7 @@
 TEST_CMD = '!test'
+GET_LIB_ROOM_RESERVATIONS = '!recommend_room_reservations'
+GET_CONTRIBUTIONS = '!get_contributions'
+GET_ATTENDANTS = '!get_attendants'
+GET_ITEM_RESERVATIONS = '!get_item_reservations'
+GET_TOP_CATALOGGERS = '!get_top_cataloggers'
+GET_MOST_FILLED_SHELVES = '!get_most_filled_shelves'
