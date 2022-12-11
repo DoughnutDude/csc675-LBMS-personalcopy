@@ -45,7 +45,7 @@ async def on_message(message):
       message.author)  # a new member joined the server. Welcome them.
   elif (str(message.channel.id) == channel_id):
     # A message was send by the user in the general channel.
-    msg = message.content.lower()
+    msg = message.content
     print(msg)
     #print(msg[0])
     if (msg[0] == '!'):
@@ -56,7 +56,10 @@ async def on_message(message):
     # on the channel from your Discord server that triggered this method.
     embed = discord.Embed(title=f"**{message.content[1:]}**")
 
-    if isinstance(response, str):
+    if isinstance(response, str) | isinstance(response, int):
+      print(response)
+      embed.description = f"{response}"
+    elif isinstance(response, Exception):
       print(response)
       embed.description = f"{response}"
     else:
@@ -76,9 +79,5 @@ async def on_message(message):
 try:
   # start the bot and keep the above methods listening for new events
   client.run(token)
-except:
-  print(
-    "Bot is offline because your secret environment variables are not set. Head to the left panel, "
-    +
-    "find the lock icon, and set your environment variables. For more details, read the README file in your "
-    + "milestone 3 repository")
+except Exception as e:
+  print(e)
