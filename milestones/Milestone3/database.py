@@ -88,7 +88,7 @@ def getContributions():
     return "Failed to retrieve contributions"
 
 
-def getNumOfMultiMemberAttendants(arg1):
+def getNumOfMultiMemberAttendants(event_id):
   try: 
     connection = connect()
     if connection:
@@ -100,7 +100,7 @@ def getNumOfMultiMemberAttendants(arg1):
       		WHERE a.org_event_fk = %s
           GROUP BY p.name
           HAVING numOfLibraries > 1;"""
-      args = (arg1)
+      args = (event_id)
       cursor = connection.cursor()
       cursor.execute(sql, args)
       connection.commit()
@@ -110,7 +110,7 @@ def getNumOfMultiMemberAttendants(arg1):
       print(results)
       if results:
         return results
-      return "no multi member attendants found for event #" + arg1 
+      return "no multi member attendants found for event #" + event_id 
   except Exception as e: 
     print(e)
     return "Failed to retrieve attendants"
@@ -233,6 +233,7 @@ def makeNewOrganizedEvent(staff_id):
 
 
 def reserveEquipment(member_id, equipment_id, start_time, end_time):
+  print(start_time+" | "+end_time)
   try: 
     connection = connect()
     if connection:
@@ -245,10 +246,13 @@ def reserveEquipment(member_id, equipment_id, start_time, end_time):
       connection.commit()
       results = cursor.fetchall()
       print(f"results {results}")
-      return "New equipment reservation created successfully"
+      print("rowcount "+str(cursor.rowcount))#debug output
+      if cursor.rowcount:
+        return "New equipment reservation created successfully"
+      return "Failed to create new equipment reservation. Time conflict detected."
   except Exception as e: 
     print(e)
-    return "Failed to create new equipment reservation. Please check that the entered datetime values for start and end are the correct format: **YYYY-MM-DD HH:MM:SS**, and check that the entered values member_id and equipment_id are correct"
+    return "Failed to create new equipment reservation. Please check that the entered datetime values for start and end are the correct format: **YYYY-MM-DD;HH:MM:SS**, and check that the entered values member_id and equipment_id are correct"
 
 
 def addEventToAllLibCalendars(event_id):

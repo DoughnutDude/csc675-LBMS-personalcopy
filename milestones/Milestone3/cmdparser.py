@@ -12,6 +12,10 @@ def response(msg):
   msg_data = msg.split()
   bot_cmd = msg_data[0].lower()
   bot_args = msg_data[1:]  #python array slicing
+  for index, arg in enumerate(bot_args):
+      if "," in arg:
+        bot_args[index] = arg.replace(",", " ")
+    
   print("cmd: {} | args: {}".format(bot_cmd, bot_args)) #debug output
 
   if bot_cmd == botcommands.TEST_CMD:
