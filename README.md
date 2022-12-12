@@ -12,7 +12,7 @@ Welcome to Database Systems!. Please modify this README file with the following 
 | Milestone #1                |        done       |
 | Milestone #2 (chekpoint 1)  |        done       |
 | Milestone #2 (chekpoint 2)  |        done       |
-| Milestone #3                |        not completed       |
+| Milestone #3                |        done       |
 
 
 
