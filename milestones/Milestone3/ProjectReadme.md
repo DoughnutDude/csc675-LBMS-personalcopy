@@ -1,5 +1,5 @@
 # Doughnut Library Management System
-|Details||
+|Details|Links|
 |--|:-:|
 |Name| Cameron Yee|
 |Student ID| 920699179|

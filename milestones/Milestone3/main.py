@@ -43,7 +43,7 @@ async def on_message(message):
   if message.type is discord.MessageType.new_member:
     response = "Welcome {}".format(
       message.author)  # a new member joined the server. Welcome them.
-  else: #elif (str(message.channel.id) == channel_id):
+  elif (str(message.channel.id) == channel_id):
     # A message was send by the user in the general channel.
     msg = message.content
     print(msg)
