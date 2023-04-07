@@ -1,4 +1,15 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=8264130&assignment_repo_type=AssignmentRepo)
+# DoughnutDude's personal copy of Library Management System Databases Project
+In this project I researched, architected, and developed a simple library management system using relational database principles learned in class.
+
+The work was split between 3 milestones over the course of the semester:
+- Research, design, Entity Relationship Diagramming, and documentation.
+- Architecture, Enhanced ERD, MySQL script writing.
+- Front-end Discord bot programming and data presentation.
+
+| [Documentation Link](milestones/Milestone2/m2.pdf)|
+|:---:|
+
+Original Project Description/Details below:
 # CSC675-775 Section 03 Database Systems
 Welcome to Database Systems!. Please modify this README file with the following info: 
 
